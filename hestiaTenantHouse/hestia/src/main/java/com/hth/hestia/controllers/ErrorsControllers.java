@@ -10,5 +10,9 @@ public class ErrorsControllers {
 	public String errorNotFound () {
 		return "Error";
 	}
+	@GetMapping("/h2")
+	public String errorH2() {
+		return "Did you mean /h2-console ???";
+	}
 	
 }
