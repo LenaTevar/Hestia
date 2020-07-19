@@ -12,7 +12,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.jupiter.MockitoSettings;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.hth.hestia.dao.TenantRepository;
@@ -64,6 +63,7 @@ public class TenantSvcTest {
 		 Tenant result = svc.getTenantByNameAndSurname(expected.getName(), expected.getSurname());
 		 assertEquals(expected, result);
 	 }
+	 
 	 @Test
 	 public void saveDuplicatedTenantException () throws Exception {
 		 Tenant expected = new Tenant("Peppa", "Pig", "12312312-4444");
