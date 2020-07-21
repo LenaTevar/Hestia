@@ -43,12 +43,13 @@ public class TenantServiceImp implements TenantService {
 		tenantRepo.delete(tenantRepo.findById(id).get());
 	}
 	
-	@Scheduled(fixedRate=1000)
+	@Scheduled(fixedRate = 5000L)
 	public void addOnePointToAllTenants() {
 		List <Tenant> tenants = tenantRepo.findAll();
 		tenants.forEach(t->t.addOneDayPoint());
 		tenantRepo.saveAll(tenants);
-		System.out.println("CUAK");
+		System.out.println("ADDING POINTS TO TENANTS");
+		System.out.println(tenantRepo.findAll());
 		 
 	}
 
