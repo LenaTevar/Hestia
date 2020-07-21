@@ -18,8 +18,7 @@ import com.hth.hestia.dao.TenantRepository;
 import com.hth.hestia.models.Tenant;
 
 @SpringBootTest
-public class TenantSvcTest {
-	private static final List<Tenant> tenants = new ArrayList<Tenant>();
+public class TenantSvcTest { 
 	
 	
 	TenantService svc;
@@ -31,12 +30,7 @@ public class TenantSvcTest {
 	void setUp() {
 		MockitoAnnotations.initMocks(this);
 		svc = new TenantServiceImp(repo);
-		tenants.clear();
-		
-		Tenant a = new Tenant("Ana", "Banana", "11112233-4444");
-		Tenant b = new Tenant("Bob", "Backer", "00009988-7777");
-		tenants.add(a);
-		tenants.add(b);
+
 	}
 	
 	 @Test
@@ -64,14 +58,6 @@ public class TenantSvcTest {
 		 assertEquals(expected, result);
 	 }
 	 
-	 @Test
-	 public void saveDuplicatedTenantException () throws Exception {
-		 Tenant expected = new Tenant("Peppa", "Pig", "12312312-4444");
-		 Optional<Tenant> optExpected = Optional.of(expected);
-		 
-		 when(repo.findByNameAndSurname(expected.getName(), expected.getSurname()))
-		 	.thenReturn(optExpected);
-		 
-		 
-	 }
+	 
+	  
 }

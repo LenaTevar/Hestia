@@ -26,6 +26,11 @@
 *.ear
 *.class
 
+#Node related
+
+hestiaTenantHouse\hestia\src\main\ui\hestia-ui\node_modules
+hestiaTenantHouse\hestia\src\main\ui\hestia-ui\builds
+
 # eclipse specific
 *.pydevproject
 .project

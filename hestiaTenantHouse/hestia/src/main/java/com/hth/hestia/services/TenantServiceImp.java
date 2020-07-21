@@ -1,10 +1,14 @@
 package com.hth.hestia.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 
 import com.hth.hestia.dao.TenantRepository;
 import com.hth.hestia.models.Tenant;
-
+@Service
 public class TenantServiceImp implements TenantService {
 	
 	
@@ -31,9 +35,28 @@ public class TenantServiceImp implements TenantService {
 		} else {
 			throw new  Exception();
 		}
-		return tenant;		
+		return tenant;				
 		
-		
+	}
+	
+	public void deleteTenantById(long id) {
+		tenantRepo.delete(tenantRepo.findById(id).get());
+	}
+	
+	@Scheduled(fixedRate=1000)
+	public void addOnePointToAllTenants() {
+		List <Tenant> tenants = tenantRepo.findAll();
+		tenants.forEach(t->t.addOneDayPoint());
+		tenantRepo.saveAll(tenants);
+		System.out.println("CUAK");
+		 
+	}
+
+
+
+	@Override
+	public List<Tenant> getAllTenants() {
+		return tenantRepo.findAll();
 	}
 
 }
