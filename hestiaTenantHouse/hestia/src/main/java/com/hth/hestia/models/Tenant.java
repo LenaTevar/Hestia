@@ -24,23 +24,29 @@ public class Tenant {
 	@Column
 	private String surname;
 	@Column
-	private String personnumber;	
+	private String identification;	
 	@Column(name = "created_at")
 	private LocalDate created_at;
 	@Column
-	private int points;
+	private int points; 
 
 	Tenant(){
-		this.created_at = LocalDate.now();
+		this.setTenant();
 	}
 	
 	public Tenant(String name, String surname, String pn) {
 		this.name = name;
 		this.surname = surname;
-		this.personnumber = pn;
-		this.created_at = LocalDate.now();
+		this.identification = pn;
+
+		this.setTenant();
 	}
+	
 	public void addOneDayPoint() {
 		this.points++;
+	}
+	
+	private void setTenant() {
+		this.created_at = LocalDate.now(); 
 	}
 }

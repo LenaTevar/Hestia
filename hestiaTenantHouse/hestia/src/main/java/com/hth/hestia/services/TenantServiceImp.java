@@ -30,7 +30,7 @@ public class TenantServiceImp implements TenantService {
 	@Override
 	public Tenant addTenant(Tenant tenant) throws Exception {
 		
-		if (tenantRepo.findByPersonnumber(tenant.getPersonnumber()).isEmpty()) {
+		if (tenantRepo.findByIdentification(tenant.getIdentification()).isEmpty()) {
 			tenantRepo.save(tenant);
 		} else {
 			throw new  Exception();
@@ -48,11 +48,10 @@ public class TenantServiceImp implements TenantService {
 		List <Tenant> tenants = tenantRepo.findAll();
 		tenants.forEach(t->t.addOneDayPoint());
 		tenantRepo.saveAll(tenants);
-		System.out.println("ADDING POINTS TO TENANTS");
+		System.out.println(">>> ADDING POINTS TO TENANTS");
 		System.out.println(tenantRepo.findAll());
 		 
 	}
-
 
 
 	@Override

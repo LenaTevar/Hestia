@@ -42,7 +42,7 @@ public class TenantSvcTest {
 		 assertEquals(A, result);
 		 
 		 // Test duplications 
-		 when(repo.findByPersonnumber(A.getPersonnumber())).thenReturn(Optional.of(A));
+		 when(repo.findByIdentification(A.getIdentification())).thenReturn(Optional.of(A));
 		 assertThrows(Exception.class, () -> svc.addTenant(A));
 		 
 	 }

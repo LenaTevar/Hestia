@@ -14,7 +14,7 @@ public class TenantTest {
 		
 		 t.setName("Ana");
 		 t.setSurname("Aguirre");
-		 t.setPersonnumber("11112233-4444");
+		 t.setIdentification("11112233-4444");
 		 System.out.println(t);
 		 assertNotNull(t);
 		 assertNotNull(t.getId());

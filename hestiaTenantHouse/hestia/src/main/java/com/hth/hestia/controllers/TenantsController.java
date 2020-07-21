@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hth.hestia.dao.TenantRepository;
@@ -24,6 +26,11 @@ public class TenantsController {
 	@GetMapping("/tenants")
 	List<Tenant> allTenants(){
 		return tenantSvc.getAllTenants();
+	}
+	
+	@PostMapping("/tenants")
+	Tenant addTenant(@RequestBody Tenant n_tenant) throws Exception {
+		return tenantSvc.addTenant(n_tenant);
 	}
 	
 }
