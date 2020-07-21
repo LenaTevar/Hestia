@@ -1,4 +1,4 @@
-package com.hth.hestia.services;
+package com.hth.hestia.services.interfaces;
 
 import java.util.List;
 

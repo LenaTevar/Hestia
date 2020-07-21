@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.hth.hestia.dao.TenantRepository;
 import com.hth.hestia.models.Tenant;
+import com.hth.hestia.services.interfaces.TenantService;
 @Service
 public class TenantServiceImp implements TenantService {
 	

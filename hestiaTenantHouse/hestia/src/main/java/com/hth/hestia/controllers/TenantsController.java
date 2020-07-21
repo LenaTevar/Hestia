@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hth.hestia.dao.TenantRepository;
 import com.hth.hestia.models.Tenant;
-import com.hth.hestia.services.TenantService;
+import com.hth.hestia.services.interfaces.TenantService;
 
 @RestController
 public class TenantsController {

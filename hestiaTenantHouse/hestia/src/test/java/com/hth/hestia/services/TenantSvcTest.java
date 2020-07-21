@@ -16,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.hth.hestia.dao.TenantRepository;
 import com.hth.hestia.models.Tenant;
+import com.hth.hestia.services.interfaces.TenantService;
 
 @SpringBootTest
 public class TenantSvcTest { 
