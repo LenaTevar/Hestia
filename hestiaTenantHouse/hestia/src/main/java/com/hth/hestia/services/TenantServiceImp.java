@@ -59,4 +59,17 @@ public class TenantServiceImp implements TenantService {
 		return tenantRepo.findAll();
 	}
 
+
+
+	@Override
+	public Tenant updateTenant(Tenant tenant, long id) {
+		Tenant result = tenantRepo.findById(id).get();
+		result.setIdentification(tenant.getIdentification());
+		result.setName(tenant.getName());
+		result.setSurname(tenant.getSurname());
+		result.setPoints(tenant.getPoints());
+		tenantRepo.save(result);
+		return result;
+	}
+
 }
