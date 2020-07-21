@@ -35,18 +35,20 @@ public class DBLoader {
 		tenantRepo.saveAll(Arrays.asList(listTenants));
 	}
 	
-	private void addAssets(AssetRepository assetRepo) {
-		AssetTypeEnum H = AssetTypeEnum.HOUSE;
-		AssetTypeEnum K = AssetTypeEnum.STUDENT;
+	private void addAssets(AssetRepository assetRepo) { 
+		Asset A = new Asset("Avägen 1", AssetTypeEnum.HOUSE);
+		Asset B = new Asset("Bvägen 1", AssetTypeEnum.HOUSE);		
 		
-		Asset A = new Asset("Avägen 1", H);
-		Asset B = new Asset("Bvägen 1", H);		
-		Asset C = new Asset("Cvägen 1", H);
+		Asset C = new Asset("Cvägen 1",AssetTypeEnum.STUDENT);
+		Asset D = new Asset("Dvägen 1",AssetTypeEnum.STUDENT);
 		
-		Asset D = new Asset("Dvägen 1", K);		
-		Asset E = new Asset("Evägen 1", K);		
-		Asset F = new Asset("Fvägen 1", K);
-		Asset[] listAssets = {A, B, C, D, E, F};
+		Asset E = new Asset("Evägen 1", AssetTypeEnum.SENIOR);		
+		Asset F = new Asset("Fvägen 1", AssetTypeEnum.SENIOR);
+		
+		Asset G = new Asset("Gvägen 1", AssetTypeEnum.PARKING);
+		Asset H = new Asset("Havägen 1", AssetTypeEnum.PARKING);
+		
+		Asset[] listAssets = {A, B, C, D, E, F, G, H};
 		assetRepo.saveAll(Arrays.asList(listAssets));
 		
 	}

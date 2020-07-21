@@ -12,7 +12,7 @@ public interface AssetService {
 	List<Asset> getAssetByType(String type);
 	Asset getAssetById(long id);
 	Asset getAssetByAddress(String address);
-	Asset addAsset(Asset asset);
+	Asset addAsset(Asset asset) throws Exception;
 	Asset updateAsset(Asset asset, long id);
 	void deleteAsset(long id);
 

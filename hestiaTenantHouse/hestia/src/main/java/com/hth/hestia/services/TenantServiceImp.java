@@ -43,17 +43,6 @@ public class TenantServiceImp implements TenantService {
 	public void deleteTenantById(long id) {
 		tenantRepo.delete(tenantRepo.findById(id).get());
 	}
-	
-	@Scheduled(fixedRate = 5000L)
-	public void addOnePointToAllTenants() {
-		List <Tenant> tenants = tenantRepo.findAll();
-		tenants.forEach(t->t.addOneDayPoint());
-		tenantRepo.saveAll(tenants);
-		System.out.println(">>> ADDING POINTS TO TENANTS");
-		System.out.println(tenantRepo.findAll());
-		 
-	}
-
 
 	@Override
 	public List<Tenant> getAllTenants() {
@@ -88,4 +77,13 @@ public class TenantServiceImp implements TenantService {
 		return tenantRepo.findById(id).get();
 	}
 
+	@Scheduled(fixedRate = 10000L)
+	public void addOnePointToAllTenants() {
+		List <Tenant> tenants = tenantRepo.findAll();
+		tenants.forEach(t->t.addOneDayPoint());
+		tenantRepo.saveAll(tenants);
+		System.out.println(">>> ADDING POINTS TO TENANTS");
+		System.out.println(tenantRepo.findAll());
+		 
+	}
 }

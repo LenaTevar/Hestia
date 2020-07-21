@@ -27,31 +27,36 @@ public class AssetServiceImp implements AssetService{
 
 	@Override
 	public Asset getAssetById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return assetRepo.findById(id).get();
 	}
 
 	@Override
 	public Asset getAssetByAddress(String address) {
-		// TODO Auto-generated method stub
-		return null;
+		return assetRepo.findByAddress(address).get();
 	}
 
 	@Override
-	public Asset addAsset(Asset asset) {
-		// TODO Auto-generated method stub
-		return null;
+	public Asset addAsset(Asset asset) throws Exception {
+		if (assetRepo.findByAddress(asset.getAddress()).isEmpty()) {
+			assetRepo.save(asset);
+		} else {
+			throw new Exception();
+		}
+		return asset;
 	}
 
 	@Override
-	public Asset updateAsset(Asset asset, long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Asset updateAsset(Asset updated, long id) {
+		Asset current = assetRepo.findById(id).get();
+		current.setAddress(updated.getAddress());
+		current.setType(updated.getType());
+		assetRepo.save(current);
+		return current;
 	}
 
 	@Override
 	public void deleteAsset(long id) {
-		// TODO Auto-generated method stub
+		assetRepo.deleteById(id);
 		
 	}
 
