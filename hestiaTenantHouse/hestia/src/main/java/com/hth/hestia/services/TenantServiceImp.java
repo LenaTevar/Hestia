@@ -72,4 +72,12 @@ public class TenantServiceImp implements TenantService {
 		return result;
 	}
 
+
+
+	@Override
+	public void deleteTenant(long id) {
+		tenantRepo.deleteById(id);
+		
+	}
+
 }
