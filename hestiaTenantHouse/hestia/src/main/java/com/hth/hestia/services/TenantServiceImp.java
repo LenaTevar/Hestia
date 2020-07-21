@@ -80,4 +80,11 @@ public class TenantServiceImp implements TenantService {
 		
 	}
 
+
+
+	@Override
+	public Tenant getTenantById(long id) {
+		return tenantRepo.findById(id).get();
+	}
+
 }

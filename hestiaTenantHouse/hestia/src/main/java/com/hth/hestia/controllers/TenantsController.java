@@ -30,6 +30,10 @@ public class TenantsController {
 	List<Tenant> allTenants(){
 		return tenantSvc.getAllTenants();
 	}
+	@GetMapping("/tenants/{id}")
+	Tenant getTenantById( @PathVariable long id) {
+		return tenantSvc.getTenantById(id);
+	}
 	
 	/**
 	 * 
